@@ -1,68 +1,129 @@
-﻿# HTF25-Team-077
+# AI Outfit Planner 👗✨
 
-## GitHub submission guide
+A Progressive Web App (PWA) that serves as your personal AI-powered fashion stylist. Upload your wardrobe, get intelligent outfit recommendations, and chat with an AI stylist for personalized fashion advice.
 
-In this Readme, you will find a guide on how to fork this Repository, add files to it, and make a pull request to contribute your changes.
+## 🌟 Features
 
-<details open>
-<summary><h3>1. Login to your GitHub Account</h3></summary>
-<br>
-<p>Go to <a href="https://github.com">github.com</a> to log in.</p>
-<ul>
-   <li>Open the <a href="https://github.com/cbitosc/HTF25-Team-077">current repo</a> in a new tab.</li>
-   <li>Perform all operations in the newly opened tab, and follow the current tab for instructions.</li>
-</ul>
-</details>
+### Phase 1 (Current) - Core Layout & Navigation ✅
+- ✅ Responsive navigation with header, sidebar, and bottom nav
+- ✅ Modern glassmorphism UI design
+- ✅ PWA configuration with offline support
+- ✅ Complete routing structure
+- ✅ Reusable component library (Button, Card, Input, Modal)
+- ✅ Error boundary and loading states
 
-<details open>
-<summary><h3>2. Fork the Repository</h3></summary>
-<br>
-<p align="center">
-  <img src="fork.jpeg" alt="Fork the Repository" height="300">
-</p>
-<ul>
- <li>In the newly opened tab, on the top-right corner, click on <b>Fork</b>.</li>
- <li>Enter the <b>Repository Name</b> as <b>HTF25-Team-077</b>.</li>
- <li>Then click <b>Create Fork</b>, leaving all other fields as default.</li>
- <li>After a few moments, you can view your forked repo.</li>
-</ul>
-</details>
+### Upcoming Features
+- 📸 Image upload with drag-and-drop
+- 🎨 AI-powered clothing detection (YOLOv8)
+- ✨ Smart outfit recommendations
+- 💬 AI chat stylist
+- 🌤️ Weather-based suggestions
+- 📅 Outfit calendar
+- 🔐 User authentication
 
-<details open>
-<summary><h3>3. Clone your Repository</h3></summary>
-<br>
-<ul>
- <li>Click on <b>Code</b> and from the dropdown menu copy your <b>web URL</b> of your forked repository.</li>
- <li>Now open terminal on your local machine.</li>
- <li>Run this command to clone the repo:</li>
-<pre><code>git clone https://github.com/your-username/HTF25-Team-077.git</code></pre>
-</ul>
-</details>
+## 🚀 Getting Started
 
-<details open>
-<summary><h3>4. Adding files to the Repository</h3></summary>
-<br>
-<ul>
- <li>While doing it for the first time, create a new branch for your changes:</li>
-<pre><code>git checkout -b branch-name</code></pre>
- <li>Add your files or make modifications to existing files.</li>
- <li>Stage your changes:</li>
-<pre><code>git add .</code></pre>
- <li>Commit your changes:</li>
-<pre><code>git commit -m "Descriptive commit message"</code></pre>
- <li>Push your branch to your fork:</li>
-<pre><code>git push origin branch-name</code></pre>
-</ul>
-</details>
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-<details open>
-<summary><h3>5. Create a Pull Request</h3></summary>
-<br>
-<ul>
- <li>Click on the <b>Contribute</b> button in your fork and choose <b>Open Pull Request</b>.</li>
- <li>Leave all fields as default, then click <b>Create Pull Request</b>.</li>
- <li>Wait a few moments; your PR is now submitted.</li>
-</ul>
-</details>
+### Installation
 
-## Thanks for participating!
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+3. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v6
+- **Build Tool**: Vite
+- **PWA**: vite-plugin-pwa
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── common/          # Reusable UI components
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Input.tsx
+│   │   ├── Modal.tsx
+│   │   ├── ErrorBoundary.tsx
+│   │   └── LoadingSpinner.tsx
+│   └── layout/          # Layout components
+│       ├── Header.tsx
+│       ├── Sidebar.tsx
+│       ├── BottomNav.tsx
+│       └── Layout.tsx
+├── pages/               # Page components
+│   ├── Home.tsx
+│   ├── Wardrobe.tsx
+│   ├── Outfits.tsx
+│   ├── Chat.tsx
+│   ├── Profile.tsx
+│   └── NotFound.tsx
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Purple gradient (#a855f7 to #9333ea)
+- **Accent**: Pink gradient (#e879f9 to #c026d3)
+- **Background**: Gradient from purple-50 via white to pink-50
+
+### Components
+- **Glass Cards**: Frosted glass effect with backdrop blur
+- **Buttons**: Primary, Secondary, and Outline variants
+- **Inputs**: Rounded design with focus states
+- **Modals**: Centered with backdrop blur
+
+## 📱 Responsive Design
+
+- **Mobile**: Bottom navigation, single column layouts
+- **Tablet**: Sidebar navigation, grid layouts
+- **Desktop**: Full sidebar, multi-column layouts
+
+## 🔄 Development Phases
+
+- ✅ **Phase 1**: Project setup and core layout
+- 🚧 **Phase 2**: Image upload and wardrobe management
+- ⏳ **Phase 3**: Outfit recommendation interface
+- ⏳ **Phase 4**: AI chat stylist
+- ⏳ **Phase 5**: Authentication
+- ⏳ **Phase 6**: AI model integration
+- ⏳ **Phase 7**: Recommendation engine
+- ⏳ **Phase 8**: Third-party integrations
+- ⏳ **Phase 9**: Optimization and deployment
+
+## 📄 License
+
+This project is built for the CBIT Hackathon 2025.
+
+## 🤝 Contributing
+
+This is a hackathon project. For collaboration, please reach out to the team.
+
+---
+
+Made with ❤️ for CBIT Hackathon 2025
