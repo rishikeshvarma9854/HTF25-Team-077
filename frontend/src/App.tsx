@@ -6,21 +6,22 @@ import Outfits from '@/pages/Outfits';
 import Chat from '@/pages/Chat';
 import Profile from '@/pages/Profile';
 import NotFound from '@/pages/NotFound';
+
 import { WardrobeProvider } from '@/context/WardrobeContext';
 import { OutfitProvider } from '@/context/OutfitContext';
 import { ChatProvider } from '@/context/ChatContext';
-import { ProfileProvider } from '@/context/ProfileContext';
-import { useProfile } from '@/context/ProfileContext';
+import { ProfileProvider, useProfile } from '@/context/ProfileContext';
 
+// 🧠 Protected route wrapper
 function ProtectedRoute({ children }: { children: JSX.Element }) {
-	// Use profile context to check auth state
 	const { authUser, isAuthLoading } = useProfile();
 
-	// While auth is initializing, render children (avoid flicker)
+	// Avoid flicker during initial auth check
 	if (isAuthLoading) return <>{children}</>;
 
 	const isAuthed = !!authUser;
-	// Redirect unauthenticated users to Home (avoid redirect loops when protecting /profile)
+
+	// Redirect unauthenticated users to Home
 	return isAuthed ? children : <Navigate to="/" replace />;
 }
 
@@ -31,13 +32,41 @@ export default function App() {
 				<ProfileProvider>
 					<ChatProvider>
 						<Routes>
-							<Route element={<Layout />}> 
+							{/* Layout wraps all main pages */}
+							<Route element={<Layout />}>
+								{/* Public route */}
 								<Route index element={<Home />} />
-								<Route path="wardrobe" element={<ProtectedRoute><Wardrobe /></ProtectedRoute>} />
-								<Route path="outfits" element={<ProtectedRoute><Outfits /></ProtectedRoute>} />
-								<Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
-								{/* Profile page is public (shows sign-in CTA). Protected routes should redirect to Home when unauthenticated. */}
+
+								{/* Protected routes */}
+								<Route
+									path="wardrobe"
+									element={
+										<ProtectedRoute>
+											<Wardrobe />
+										</ProtectedRoute>
+									}
+								/>
+								<Route
+									path="outfits"
+									element={
+										<ProtectedRoute>
+											<Outfits />
+										</ProtectedRoute>
+									}
+								/>
+								<Route
+									path="chat"
+									element={
+										<ProtectedRoute>
+											<Chat />
+										</ProtectedRoute>
+									}
+								/>
+
+								{/* Profile page is public (handles sign-in, etc.) */}
 								<Route path="profile" element={<Profile />} />
+
+								{/* Fallback for invalid routes */}
 								<Route path="*" element={<NotFound />} />
 							</Route>
 						</Routes>
